@@ -61,6 +61,7 @@ func startServer() {
 	}
 
 	defer scheduler.Stop()
+	scheduler.StartBlocking()
 
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGTERM, syscall.SIGINT)
