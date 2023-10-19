@@ -1,4 +1,4 @@
-package beteraAstrology
+package app
 
 type ApodModel struct {
 	Copyright      string `json:"copyright" db:"copyright"`

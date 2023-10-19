@@ -1,7 +1,7 @@
 package main
 
 import (
-	withGin "beteraAstrology"
+	withGin "beteraAstrology/app"
 	"beteraAstrology/app/pkg/handler"
 	repository2 "beteraAstrology/app/pkg/repository"
 	"beteraAstrology/app/pkg/service"

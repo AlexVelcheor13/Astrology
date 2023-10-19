@@ -1,4 +1,4 @@
-package beteraAstrology
+package app
 
 import (
 	"context"
