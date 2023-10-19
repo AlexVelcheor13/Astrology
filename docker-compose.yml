@@ -1,0 +1,38 @@
+version: '1.0'
+
+services:
+  db:
+    image: postgres:latest
+
+    volumes:
+      - ./.database/postgres/data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - 5436:5432
+
+
+  beteraAstrology:
+    build: ./
+    command: ./app/main
+    volumes:
+      - ./.pictures:/pictures/
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
+    environment:
+      - NASA_API_KEY_TOKEN=9AVVvkd6oYPUM1rg23FKkPCb09ptAfMKo2MLYpTA
+      - NASA_URL=https://api.nasa.gov/planetary/apod
+
+      - HOST=http://127.0.0.1
+      - PORT=8081
+
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5436
+      - DB_USERNAME=postgres
+      - DB_NAME=postgres
+      - DB_SSLMODE=disable
